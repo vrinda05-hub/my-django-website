@@ -1,11 +1,10 @@
-</html>
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="{% static 'website/style.css' %}">
 </head>
 <body>
@@ -17,24 +16,23 @@
     </nav>
 
     <main>
-        <h1>About Student Task Manager</h1>
+        <h1>Contact Us</h1>
 
         <p>
-            Student Task Manager is a web application developed using
-            Python and Django to help students organize their daily tasks.
+            Have any questions or suggestions about our project?
+            Feel free to contact us.
         </p>
 
-        <h2>Our Purpose</h2>
+        <h2>Contact Information</h2>
 
         <p>
-            The main purpose of this project is to make task management
-            simple and efficient. Students can add tasks, view their tasks,
-            mark them as completed or pending, and delete tasks when finished.
+            Email:
+            <a href="mailto:vt3638@srmist.edu.in">
+                vt3638@srmist.edu.in
+            </a>
         </p>
 
-        <h2>Technologies Used</h2>
-
-        <p>Python, Django, HTML, CSS, and SQLite Database.</p>
+        <p>Thank you for visiting Student Task Manager!</p>
 
         <a href="{% url 'home' %}">Go to Home</a>
     </main>
