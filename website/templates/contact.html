@@ -1,8 +1,11 @@
+</html>
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'website/style.css' %}">
 </head>
 <body>
@@ -13,10 +16,29 @@
         <a href="/contact/">Contact</a>
     </nav>
 
-    <h1>Contact Us</h1>
+    <main>
+        <h1>Contact Us</h1>
 
-    <p>Welcome to our Contact page.</p>
-    <p>Email: contact@example.com</p>
+        <p>
+            Have any questions or suggestions about our project?
+            Feel free to contact us.
+        </p>
+
+        <h2>Contact Information</h2>
+
+        <p>
+            Email:
+            <a href="mailto:vt3638@srmist.edu.in">
+                vt3638@srmist.edu.in
+            </a>
+        </p>
+
+        <p>
+            Thank you for visiting Student Task Manager!
+        </p>
+
+        <a href="/">Go to Home</a>
+    </main>
 
 </body>
 </html>
