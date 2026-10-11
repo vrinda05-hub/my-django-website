@@ -1,31 +1,61 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Django Website</title>
-
-    {% load static %}
+    <title>Student Task Manager</title>
     <link rel="stylesheet" href="{% static 'website/style.css' %}">
 </head>
 <body>
-
     <nav>
         <a href="/">Home</a>
         <a href="/about/">About</a>
         <a href="/contact/">Contact</a>
     </nav>
 
-    <section class="hero">
-        <h1>Welcome to My Website</h1>
+    <main>
+        <h1>Student Task Manager</h1>
+        <p>Organize your daily tasks in one place.</p>
 
-        <p>
-            This is my Django website, created using
-            Python, Django, HTML and CSS.
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="title"
+                   placeholder="Enter task title" required>
+
+            <textarea name="description"
+                      placeholder="Enter task description"></textarea>
+
+            <button type="submit">Add Task</button>
+        </form>
+
+        <h2>My Tasks</h2>
+
+        {% for task in tasks %}
+    <div class="task">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+
+        <p>Status:
+            {% if task.completed %}
+                Completed
+            {% else %}
+                Pending
+            {% endif %}
         </p>
 
-        <a href="/about/" class="btn">Learn More</a>
-    </section>
+        <form method="POST" action="{% url 'complete_task' task.id %}">
+            {% csrf_token %}
+            <button type="submit">
+                {% if task.completed %}Mark Pending{% else %}Mark Complete{% endif %}
+            </button>
+        </form>
 
-</body>
-</html>
+        <form method="POST" action="{% url 'delete_task' task.id %}">
+            {% csrf_token %}
+            <button type="submit">DELETE TASK</button>
+        </form>
+    </div>
+{% empty %}
+    <p>No tasks yet. Add your first task!</p>
+{% endfor %}
